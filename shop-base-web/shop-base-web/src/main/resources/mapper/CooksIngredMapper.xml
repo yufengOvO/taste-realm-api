@@ -1,0 +1,35 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--注意命名空间为SysUserMapper对应的路径-->
+<mapper namespace="edu.cdtu.web.cook_ingred.mapper.CooksIngredMapper">
+    <!--    新增权限，可以一次添加多条-->
+    <insert id="saveIngred" parameterType="map">
+        INSERT INTO cooks_ingred (cooks_id, ingred_id)
+        VALUES
+        <foreach collection="ingredIdList" item="ingredId" separator=",">
+            (#{cooksId}, #{ingredId})
+        </foreach>
+    </insert>
+    <!--    查询出所有的菜单的食材信息-->
+    <select id="getIngredBycookId" resultType="edu.cdtu.web.ingredients_category.entity.IngredientsCategory">
+        SELECT DISTINCT m.* FROM cooks_ingred as um
+        LEFT JOIN ingred_category as m
+        ON um.ingred_id = m.ingred_id
+        WHERE um.ingred_id IN
+        <foreach item="id" collection="ingredIds" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </select>
+<!--   根据食材来查询所选食材包含的菜品-->
+    <select id="findCooksByIngredIds" resultType="edu.cdtu.web.goods.entity.Goods">
+        SELECT DISTINCT c.*
+        FROM goods c
+        JOIN cooks_ingred yt ON yt.cooks_id = c.goods_id
+        WHERE yt.ingred_id IN
+        <foreach collection="ingredIds" item="ingredId" separator="," open="(" close=")">
+            #{ingredId}
+        </foreach>
+    </select>
+
+</mapper>

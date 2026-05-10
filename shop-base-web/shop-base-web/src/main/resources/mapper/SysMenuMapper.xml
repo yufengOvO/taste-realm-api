@@ -1,0 +1,17 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--注意命名空间为SysUserMapper对应的路径-->
+<mapper namespace="edu.cdtu.web.sys_menu.mapper.SysMenuMapper">
+<!--    联合查询将user_menu和sys_menu进行联合查询，-->
+    <select id="getMenuByUserId" resultType="edu.cdtu.web.sys_menu.entity.SysMenu">
+<!--        查询从user_menu开始别名为um-->
+        SELECT m.* FROM user_menu as um
+<!--        左连接将sys_menu表和user_menu表连接上-->
+        left join sys_menu as m
+<!--        查询这个2个表menu_id相同的字段-->
+        on um.menu_id = m.menu_id
+<!--        根据user_menu的id进行查询-->
+        where um.user_id =#{userId}
+    </select>
+</mapper>

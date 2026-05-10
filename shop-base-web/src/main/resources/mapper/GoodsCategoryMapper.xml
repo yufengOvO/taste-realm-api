@@ -1,0 +1,8 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--用于实现复杂的sql，同时用命名空间来指定数Mapper接口-->
+
+<!--注意命名空间为SysUserMapper对应的路径-->
+<mapper namespace="edu.cdtu.web.sys_menu.mapper.GoodsCategoryMapper">
+</mapper>

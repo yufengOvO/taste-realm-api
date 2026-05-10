@@ -1,0 +1,13 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--注意命名空间为SysUserMapper对应的路径-->
+<mapper namespace="edu.cdtu.web.user_menu.mapper.UserMenuMapper">
+<!--    新增权限，可以一次添加多条-->
+    <insert id="saveMenu">
+        insert into user_menu(user_id,menu_id) values
+        <foreach collection="menuIds" separator="," item="item" index="index">
+            (#{userId},#{item})
+        </foreach>
+    </insert>
+</mapper>

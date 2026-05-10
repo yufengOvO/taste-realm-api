@@ -1,0 +1,33 @@
+#spring:
+#  profiles:
+#    active:test
+#端口号配置
+server:
+  port: 8089
+#数据库连接配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/usedShop?useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8&zeroDateTimeBehavior=convertToNull&useSSL=false
+    username: root
+    password: 123456
+  servlet:
+    multipart:
+      maxFileSize: 1024MB  # 设置上传文件的最大大小，默认为 1MB
+      maxRequestSize: 1024MB  # 设置请求中最大允许的文件大小，默认为 10MB
+
+#mybatis plus配置
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config: #配置mybatis plus 在更新时只更新非空和非NULL的字段
+      update-strategy: not_empty
+web:
+  uploadpath: D:/images/
+  load-path: file:D://images/
+
+logging:
+  pattern:
+    console: '%d{yyyy-MM-dd} [%thread] %-5level %logger- %msg%n'
