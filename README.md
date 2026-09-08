@@ -196,8 +196,10 @@ java -jar shop-base-web/shop-base-web/target/shop-base-web.jar
   "data": {
     "userId": 1,
     "nickName": "管理员",
-    "menuList": [...],
-    "codeList": [...]
+    "menuList": [
+      { "menuId": 1, "title": "首页", "path": "/home", "icon": "home", "parentId": 0 }
+    ],
+    "codeList": ["goods:add", "goods:edit", "user:list"]
   }
 }
 ```
