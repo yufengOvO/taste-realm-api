@@ -1,6 +1,10 @@
-# 菜谱后端
+# 菜谱平台后端系统
 
 基于 Spring Boot + MyBatis Plus 的菜谱平台后端系统，支持微信小程序用户端和管理后台。
+
+## 项目简介
+
+本项目是一个菜谱分享平台的后端系统，提供菜品管理、用户管理、分类管理、轮播图管理等功能。支持微信小程序端和Web管理后台，为用户提供便捷的菜谱浏览和管理体验。
 
 ## 技术栈
 
@@ -69,7 +73,7 @@ spring:
 
 ```bash
 # 克隆项目
-git clone https://github.com/your-username/zhuanzhuan-dev.git
+git clone https://github.com/yufengOvO/zhuanzhuan-dev.git
 cd zhuanzhuan-dev
 
 # 编译打包
@@ -94,6 +98,15 @@ java -jar shop-base-web/shop-base-web/target/shop-base-web.jar
   "data": {}
 }
 ```
+
+### 状态码说明
+
+| 状态码 | 说明 |
+|--------|------|
+| 200 | 操作成功 |
+| 500 | 操作失败 |
+| 600 | 未登录 |
+| 700 | 无权限 |
 
 ---
 
@@ -263,7 +276,8 @@ java -jar shop-base-web/shop-base-web/target/shop-base-web.jar
 
 - 带有 `@Auth` 注解的接口需要登录认证
 - 管理员登录后获取菜单和权限码列表
-- 超级管理员不可被分配菜单权限
+- 超级管理员（`isAdmin=1`）可访问所有菜单
+- 普通管理员根据分配的菜单权限访问
 
 ## 配置说明
 
@@ -273,6 +287,11 @@ java -jar shop-base-web/shop-base-web/target/shop-base-web.jar
 | `spring.datasource.url` | 数据库连接 | jdbc:mysql://localhost:3306/usedShop |
 | `web.uploadpath` | 图片上传路径 | D:/images/ |
 | `spring.servlet.multipart.maxFileSize` | 最大上传文件大小 | 1024MB |
+
+## 相关项目
+
+- **网页端仓库**: [taste-realm](https://github.com/yufengOvO/taste-realm)
+- **小程序仓库**: [zhuanzhuanuniapp](https://github.com/yufengOvO/zhuanzhuanuniapp)
 
 ## License
 
