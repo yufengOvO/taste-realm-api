@@ -292,8 +292,8 @@ java -jar shop-base-web/shop-base-web/target/shop-base-web.jar
 
 ## 相关项目
 
-- **网页端仓库**: [taste-realm](https://github.com/yufengOvO/taste-realm-webtaste-realm-web)
-- **小程序仓库**: [zhuanzhuanuniapp](https://github.com/yufengOvO/taste-realm-mobile
+- **网页端仓库**: [taste-realm-web](https://github.com/yufengOvO/taste-realm-webtaste-realm-web)
+- **小程序仓库**: [taste-realm-mobile](https://github.com/yufengOvO/taste-realm-mobile
   )
 
 ## License
